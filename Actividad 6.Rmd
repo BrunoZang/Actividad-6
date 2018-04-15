@@ -21,6 +21,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 # Ejercicio 2
+
 Cargar la librería `tidyverse` y con los datos `mpg` usar las funciones que vimos de `dplyr` para  transformar los datos de la siguiente forma. 
 
 1. Seleccionar el conjunto de autos del 2008 que tienen `hwy` mayor a 31. ¿Cuantos autos son?
@@ -38,6 +39,41 @@ Primero tenés que saber la conversión de galones a litros y de millas a kilóm
 
 `1 milla = 1.60934 km`
 
+
+```{r}
+library(tidyverse)
+
+mpg
+
+```
+
+1. 
+```{r}
+(filter(mpg,year==2008 & hwy>31))
+```
+Son 6 autos
+
+
+2.
+```{r}
+(filter(mpg,cty==9 | hwy>90))
+```
+Son 5 autos
+
+3.
+```{r}
+select(mpg,displ,hwy)
+```
+
+4.
+```{r}
+select(mpg,trans:hwy)
+```
+
+5.
+```{r}
+mutate(mpg,LxKm=hwy*(3.78541/1.60934))
+```
 
 
 
