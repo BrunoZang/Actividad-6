@@ -2,7 +2,7 @@
 title: "Actividad 6"
 author: "Bruno Zang"
 date: "12 de abril de 2018"
-output: pdf_document
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -40,19 +40,23 @@ Primero tenés que saber la conversión de galones a litros y de millas a kilóm
 `1 milla = 1.60934 km`
 
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 library(tidyverse)
 
 mpg
 
 ```
 
-1. 
+
+1.
 ```{r}
 (filter(mpg,year==2008 & hwy>31))
 ```
 Son 6 autos
 
+<span style="color:green">
+Bien
+</span>
 
 2.
 ```{r}
@@ -60,20 +64,47 @@ Son 6 autos
 ```
 Son 5 autos
 
+
+<span style="color:green">
+Bien
+</span>
 3.
 ```{r}
 select(mpg,displ,hwy)
 ```
+
+<span style="color:green">
+Bien
+</span>
 
 4.
 ```{r}
 select(mpg,trans:hwy)
 ```
 
+<span style="color:green">
+Bien
+</span>
+
+
 5.
 ```{r}
 mutate(mpg,LxKm=hwy*(3.78541/1.60934))
 ```
+
+
+<span style="color:green">
+Si mir'as la media de tu nueva variable te da 55.1, es muy alto como rendimiento en  por litro. La cuenta que hay que hacer es
+mpg %>% mutate(hwylkm = (3.78541/1.60934)*100/hwy)
+</span>
+
+
+<span style="color:green">
+Te falta todo el segundo ejercicio de exploraci'on con los datos happy
+Ver sol en EVA
+PUNTOS 3/10
+</span>
+
 
 
 
